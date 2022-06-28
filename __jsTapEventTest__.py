@@ -13,7 +13,6 @@ class View(ui.View):
   def __init__(self, *args, **kwargs):
     ui.View.__init__(self, *args, **kwargs)
     self.wv = WKWebView()
-    pdbg.state(self.wv)
     self.wv.load_url(str(uri))
     self.wv.flex = 'WH'
     self.refresh_webview()
