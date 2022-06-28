@@ -20,8 +20,12 @@
 </style>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/eruda@2.4.1/eruda.min.js"></script>
-  <script>eruda.init();</script>
+  <script type="module">
+    // import eruda from 'https://cdn.skypack.dev/eruda';
+    import eruda from './js/modules/eruda.js';
+    eruda.init();
+    console.log('eruda run');
+  </script>
 
   <script type="module" src="./main.js"></script>
   <title>tap テスト</title>
