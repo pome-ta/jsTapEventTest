@@ -6,14 +6,12 @@ import ui
 sys.path.append(str(pathlib.Path.cwd()) + '/pythonista-webview')
 from wkwebview import WKWebView
 
-uri = pathlib.Path('./docs/index.html')
-
 
 class View(ui.View):
-  def __init__(self, *args, **kwargs):
+  def __init__(self, url, *args, **kwargs):
     ui.View.__init__(self, *args, **kwargs)
     self.wv = WKWebView()
-    self.wv.load_url(str(uri))
+    self.wv.load_url(str(url))
     self.wv.flex = 'WH'
     self.refresh_webview()
     self.add_subview(self.wv)
@@ -39,6 +37,7 @@ class View(ui.View):
 if __name__ == '__main__':
   #sys.path.append(str(pathlib.Path.cwd()) + '/pystaObjcPrint')
   #import pdbg
-  view = View()
+  uri_path = pathlib.Path('./docs/index.html')
+  view = View(uri_path)
   view.present(style='fullscreen', orientations=['portrait'])
 
