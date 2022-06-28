@@ -1,38 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <title>tap テスト</title>
+    <style>
+      .logs p{
+	      display: inline;
+      }
+      .btn {
+        height: 4rem;
+        margin: 4rem;
+        background-color: maroon;
+      }
 
-<style>
+      .btn:active {
+        background-color: teal;
+      }
+    </style>
 
-.btn {
-  height: 4rem;
-  margin: 4rem;
-  background-color: maroon;
-  
-}
+    <script type="module">
+      import eruda from './js/modules/eruda.js';
+      eruda.init();
+      console.log('eruda run');
+    </script>
 
-.btn:active {
-  background-color: teal;
-}
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
 
-</style>
-
-
-  <script type="module">
-    // import eruda from 'https://cdn.skypack.dev/eruda';
-    import eruda from './js/modules/eruda.js';
-    eruda.init();
-    console.log('eruda run');
-  </script>
-
-  <link rel="stylesheet" href="./css/style.css">
-  <script type="module" src="./js/main.js"></script>
-  <title>tap テスト</title>
-</head>
-<body>
-<div id="a" class="btn"></div>
-<div id="b" class="btn"></div>
-</body>
+  </head>
+  <body>
+    <div class="logs">
+      x: <p id="logX">0.0</p>
+    </div>
+    <div class="logs">
+      y: <p id="logy">0.0</p>
+    </div>
+    
+    <div id="a" class="btn"></div>
+    <div id="b" class="btn"></div>
+  </body>
 </html>
