@@ -3,10 +3,11 @@ import pathlib
 
 import ui
 
-#import pdbg
-
 sys.path.append(str(pathlib.Path.cwd()) + '/pythonista-webview')
 from wkwebview import WKWebView
+
+#sys.path.append(str(pathlib.Path.cwd()) + '/pystaObjcPrint')
+#import pdbg
 
 uri = pathlib.Path('./docs/index.html')
 
@@ -41,5 +42,4 @@ class View(ui.View):
 if __name__ == '__main__':
   view = View()
   view.present(style='fullscreen', orientations=['portrait'])
-
 
