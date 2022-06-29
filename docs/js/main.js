@@ -24,8 +24,8 @@ styleElement.innerHTML = `
     background-color: teal;
   }`;
 
-document.body.prepend(styleElement);
-
+//document.body.prepend(styleElement);
+document.head.appendChild(styleElement);
 
 const logX = document.querySelector('#logX');
 const logY = document.querySelector('#logY');
@@ -44,13 +44,11 @@ for (const divBtn of btns) {
     if (0.0 <= x && x < target.clientWidth) {
       logX.textContent = `${target.id}: ${x}`;
     }
-    
+
     const y = (touches.clientY - rc.top) | 0.0;
     if (0.0 <= y && y < target.clientHeight) {
       logY.textContent = `${target.id}: ${y}`;
     }
-    
-    
   });
 }
 //console.log(btns);
