@@ -10,6 +10,10 @@ const { touchBegan, touchMoved, touchEnded } = {
     typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
 };
 
+const styleElement = document.createElement('style');
+styleElement.innerHTML = ``;
+
+
 const logX = document.querySelector('#logX');
 const logY = document.querySelector('#logY');
 
