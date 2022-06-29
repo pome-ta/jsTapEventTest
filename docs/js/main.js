@@ -13,16 +13,48 @@ const { touchBegan, touchMoved, touchEnded } = {
 const logX = document.querySelector('#logX');
 const logY = document.querySelector('#logY');
 
-const btns = document.getElementsByClassName('btn');
+const btns = document.querySelectorAll('.btn');
+for (const divBtn of btns) {
+  //console.log(divBtn.id);
+  divBtn.addEventListener(touchBegan, (event) => {
+    event.preventDefault();
+  });
+  divBtn.addEventListener(touchMoved, (event) => {
+    const target = event.target;
+    const touches = event.touches[0];
+    const rc = target.getBoundingClientRect();
+    const x = (touches.clientX - rc.left) | 0.0;
+    if (0.0 <= x && x < target.clientWidth) {
+      logX.textContent = `${target.id}: ${x}`;
+    }
+    
+    const y = (touches.clientY - rc.top) | 0.0;
+    if (0.0 <= y && y < target.clientHeight) {
+      logY.textContent = `${target.id}: ${y}`;
+    }
+    
+    
+  });
+}
 //console.log(btns);
 
-document.body.addEventListener(touchMoved, (e) => {
-  //console.log(e.target.tagName);
-  //console.log(e.touches);
+/*
+btns.addEventListener(touchMoved, (e) => {
+  e.preventDefault();
   logX.textContent = e.touches[0].clientX;
   logY.textContent = e.touches[0].clientY;
 });
+*/
 
+/*
+document.body.addEventListener(touchMoved, (e) => {
+  //console.log(e.target.tagName);
+  //console.log(e.touches);
+  e.preventDefault();
+  logX.textContent = e.touches[0].clientX;
+  logY.textContent = e.touches[0].clientY;
+});
+*/
 /*
 document.addEventListener(tapDown, (e) => {
   console.log(this);
