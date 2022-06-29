@@ -11,7 +11,20 @@ const { touchBegan, touchMoved, touchEnded } = {
 };
 
 const styleElement = document.createElement('style');
-styleElement.innerHTML = ``;
+styleElement.innerHTML = `
+  .logs p{
+    display: inline;
+  }
+  .btn {
+    height: 8rem;
+    margin: 4rem;
+    background-color: maroon;
+  }
+  .btn:active {
+    background-color: teal;
+  }`;
+
+document.body.prepend(styleElement);
 
 
 const logX = document.querySelector('#logX');
