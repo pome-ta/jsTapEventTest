@@ -12,13 +12,15 @@ const { touchBegan, touchMoved, touchEnded } = {
 
 const logX = document.querySelector('#logX');
 const logY = document.querySelector('#logY');
+
 const btns = document.getElementsByClassName('btn');
 //console.log(btns);
 
-document.body.addEventListener(touchBegan, (e) => {
+document.body.addEventListener(touchMoved, (e) => {
   //console.log(e.target.tagName);
-  console.log(e.touches);
-  //logX.textContent = 
+  //console.log(e.touches);
+  logX.textContent = e.touches[0].clientX;
+  logY.textContent = e.touches[0].clientY;
 });
 
 /*
