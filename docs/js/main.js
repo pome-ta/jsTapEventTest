@@ -1,15 +1,6 @@
 'use strict';
 
-// todo: MouseEvent TouchEvent wrapper
-const { touchBegan, touchMoved, touchEnded } = {
-  touchBegan:
-    typeof document.ontouchstart !== 'undefined' ? 'touchstart' : 'mousedown',
-  touchMoved:
-    typeof document.ontouchmove !== 'undefined' ? 'touchmove' : 'mousemove',
-  touchEnded:
-    typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
-};
-
+/* set style */
 const styleElement = document.createElement('style');
 styleElement.innerHTML = `
   .logs p{
@@ -27,12 +18,21 @@ styleElement.innerHTML = `
 //document.body.prepend(styleElement);
 document.head.appendChild(styleElement);
 
+// todo: MouseEvent TouchEvent wrapper
+const { touchBegan, touchMoved, touchEnded } = {
+  touchBegan:
+    typeof document.ontouchstart !== 'undefined' ? 'touchstart' : 'mousedown',
+  touchMoved:
+    typeof document.ontouchmove !== 'undefined' ? 'touchmove' : 'mousemove',
+  touchEnded:
+    typeof document.ontouchend !== 'undefined' ? 'touchend' : 'mouseup',
+};
+
 const logX = document.querySelector('#logX');
 const logY = document.querySelector('#logY');
 
 const btns = document.querySelectorAll('.btn');
 for (const divBtn of btns) {
-  //console.log(divBtn.id);
   divBtn.addEventListener(touchBegan, (event) => {
     event.preventDefault();
   });
